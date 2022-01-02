@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# UI Component Library
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is being built with `Typescript, React and Storybook`
 
 ## Available Scripts
 

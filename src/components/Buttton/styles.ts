@@ -16,7 +16,7 @@ const sizes = {
     },
 }
 
-const StyledButton = styled.button<ButtonProps>((props) => ({
+const StyledButton = styled.button<Omit<ButtonProps, 'label'>>((props) => ({
     outline: 'none',
     border: props.variant === 'outlined' ? 'solid 1px #519e8a' : 'none',
     borderRadius: '5px',
@@ -28,6 +28,7 @@ const StyledButton = styled.button<ButtonProps>((props) => ({
             : '#b9d8d0',
     color: props.variant === 'primary' ? '#dcece8' : '#10201c',
     ...sizes[props.size as keyof typeof sizes],
+    fontFamily: `'Zen Maru Gothic', sans-serif`,
 
     '&:hover': {
         cursor: 'pointer',
