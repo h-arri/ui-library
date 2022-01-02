@@ -36,6 +36,17 @@ const StyledInput = styled.input<Omit<InputProps, 'label'>>((props) => ({
     borderRadius: '5px',
     background: '#eef5f3',
     fontSize: '16px',
+    '-moz-appearance': 'textfield',
+
+    '::-webkit-outer-spin-button': {
+        '-webkit-appearance': 'none',
+        margin: 0,
+    },
+
+    '::-webkit-inner-spin-button': {
+        '-webkit-appearance': 'none',
+        margin: 0,
+    },
 }))
 
 export { StyledContainer, StyledLabel, StyledInput }

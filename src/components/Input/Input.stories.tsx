@@ -18,3 +18,9 @@ export const TextInput = Template.bind({})
 TextInput.args = {
     label: 'Name',
 }
+
+export const NumberInput = Template.bind({})
+NumberInput.args = {
+    label: 'Age',
+    type: 'number',
+}
