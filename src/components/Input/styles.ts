@@ -2,10 +2,10 @@ import styled from '@emotion/styled'
 import * as React from 'react'
 import { InputProps } from './types'
 
-const StyledContainer = styled.div({
+const StyledContainer = styled.div<{ isTime?: boolean }>(({ isTime }) => ({
     display: 'flex',
     flexDirection: 'column',
-    width: '200px',
+    width: isTime ? '80px' : '200px',
     position: 'relative',
     fontFamily: `'Zen Maru Gothic', sans-serif`,
 
@@ -18,22 +18,25 @@ const StyledContainer = styled.div({
         top: '15px',
         right: '-17px',
     },
-})
-
-const StyledLabel = styled.label<{ isActive: boolean }>((props) => ({
-    fontSize: '16px',
-    padding: '0 12px',
-    color: '#10201c',
-    pointerEvents: 'none',
-    position: 'absolute',
-    transform: props.isActive
-        ? 'translate(0, 8px) scale(0.75)'
-        : 'translate(0, 16px) scale(1)',
-    transformOrigin: 'top left',
-    transition: 'all 0.2s ease-out',
 }))
 
-const StyledInput = styled.input<Omit<InputProps, 'label'>>((props) => ({
+const StyledLabel = styled.label<{ isActive: boolean; isDateOrTime?: boolean }>(
+    ({ isActive, isDateOrTime }) => ({
+        fontSize: '16px',
+        padding: '0 12px',
+        color: '#10201c',
+        pointerEvents: 'none',
+        position: 'absolute',
+        transform:
+            isActive || isDateOrTime
+                ? 'translate(0, 8px) scale(0.75)'
+                : 'translate(0, 16px) scale(1)',
+        transformOrigin: 'top left',
+        transition: 'all 0.2s ease-out',
+    }),
+)
+
+const StyledInput = styled.input({
     width: '100%',
     height: '36px',
     padding: '14px 16px 0 10px',
@@ -53,6 +56,6 @@ const StyledInput = styled.input<Omit<InputProps, 'label'>>((props) => ({
         '-webkit-appearance': 'none',
         margin: 0,
     },
-}))
+})
 
 export { StyledContainer, StyledLabel, StyledInput }

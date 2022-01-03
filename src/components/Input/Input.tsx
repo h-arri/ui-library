@@ -32,7 +32,11 @@ const Input = ({
 
     return (
         <StyledContainer>
-            <StyledLabel htmlFor={name} isActive={isActive}>
+            <StyledLabel
+                htmlFor={name}
+                isActive={isActive}
+                isDateOrTime={type === 'date' || type === 'time'}
+            >
                 {label}
             </StyledLabel>
             <StyledInput

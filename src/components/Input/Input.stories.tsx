@@ -30,3 +30,15 @@ PasswordInput.args = {
     label: 'Password',
     type: 'password',
 }
+
+export const DateInput = Template.bind({})
+DateInput.args = {
+    label: 'Date',
+    type: 'date',
+}
+
+export const TimeInput = Template.bind({})
+TimeInput.args = {
+    label: 'Time',
+    type: 'time',
+}
