@@ -32,6 +32,13 @@ const StyledButton = styled.button<Omit<ButtonProps, 'label'>>((props) => ({
 
     '&:hover': {
         cursor: 'pointer',
+        backgroundColor:
+            props.variant === 'primary'
+                ? '#396f61'
+                : props.variant === 'outlined'
+                ? '#b9d8d0'
+                : '#519e8a',
+        color: props.variant === 'primary' ? '#eef5f3' : '#10201c',
     },
 }))
 
