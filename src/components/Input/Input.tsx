@@ -31,7 +31,7 @@ const Input = ({
     }
 
     return (
-        <StyledContainer>
+        <StyledContainer isTime={type === 'time'}>
             <StyledLabel
                 htmlFor={name}
                 isActive={isActive}
