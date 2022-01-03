@@ -24,3 +24,9 @@ NumberInput.args = {
     label: 'Age',
     type: 'number',
 }
+
+export const PasswordInput = Template.bind({})
+PasswordInput.args = {
+    label: 'Password',
+    type: 'password',
+}

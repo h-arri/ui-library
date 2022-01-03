@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { StyledContainer, StyledInput, StyledLabel } from './styles'
 import { InputProps } from './types'
+import show from '../../../public/show.svg'
+import hide from '../../../public/hide.svg'
 
 const Input = ({
     label,
@@ -11,6 +13,7 @@ const Input = ({
 }: InputProps) => {
     const [value, setValue] = React.useState<string>('')
     const [isActive, setIsActive] = React.useState<boolean>(false)
+    const [showPassword, setShowPassword] = React.useState<boolean>(false)
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setValue(e.target.value)
@@ -23,6 +26,10 @@ const Input = ({
         }
     }
 
+    const handleIconClick = () => {
+        setShowPassword(!showPassword)
+    }
+
     return (
         <StyledContainer>
             <StyledLabel htmlFor={name} isActive={isActive}>
@@ -31,11 +38,20 @@ const Input = ({
             <StyledInput
                 id={name}
                 name={name}
-                type={type}
+                type={showPassword ? 'text' : type}
                 value={value}
                 onChange={handleChange}
                 {...restProps}
             />
+            {type === 'password' && (
+                <img
+                    alt={`${showPassword ? 'Hide password' : 'Show password'}`}
+                    src={`${showPassword ? hide : show}`}
+                    width={25}
+                    height={25}
+                    onClick={handleIconClick}
+                />
+            )}
         </StyledContainer>
     )
 }

@@ -12,6 +12,12 @@ const StyledContainer = styled.div({
     '&:focus-within label': {
         transform: 'translate(0, 8px) scale(0.75)',
     },
+
+    img: {
+        position: 'absolute',
+        top: '15px',
+        right: '-17px',
+    },
 })
 
 const StyledLabel = styled.label<{ isActive: boolean }>((props) => ({
