@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { colors, typography } from '../../styles/global'
 import { ButtonProps } from './types'
 
 const sizes = {
@@ -18,27 +19,35 @@ const sizes = {
 
 const StyledButton = styled.button<Omit<ButtonProps, 'label'>>((props) => ({
     outline: 'none',
-    border: props.variant === 'outlined' ? 'solid 1px #519e8a' : 'none',
+    border:
+        props.variant === 'outlined' ? `solid 1px ${colors.primary}` : 'none',
     borderRadius: '5px',
     backgroundColor:
         props.backgroundColor ?? props.variant === 'primary'
-            ? '#519e8a'
+            ? colors.primary
             : props.variant === 'outlined'
-            ? '#eef5f3'
-            : '#b9d8d0',
-    color: props.variant === 'primary' ? '#dcece8' : '#10201c',
+            ? colors.lightest
+            : colors.secondary,
+    color:
+        props.variant === 'primary'
+            ? typography.colors.light
+            : typography.colors.dark,
     ...sizes[props.size as keyof typeof sizes],
-    fontFamily: `'Zen Maru Gothic', sans-serif`,
 
+    '&:disabled': {
+        backgroundColor: colors.lightest,
+        color: 'rgba(32, 63, 55, 0.5)',
+
+        '&:hover': {
+            cursor: 'not-allowed',
+            backgroundColor: colors.lightest,
+            color: 'rgba(32, 63, 55, 0.5)',
+        },
+    },
     '&:hover': {
         cursor: 'pointer',
-        backgroundColor:
-            props.variant === 'primary'
-                ? '#396f61'
-                : props.variant === 'outlined'
-                ? '#b9d8d0'
-                : '#519e8a',
-        color: props.variant === 'primary' ? '#eef5f3' : '#10201c',
+        backgroundColor: colors.hover,
+        color: typography.colors.light,
     },
 }))
 

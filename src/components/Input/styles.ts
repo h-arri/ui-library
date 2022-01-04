@@ -7,7 +7,6 @@ const StyledContainer = styled.div<{ isTime?: boolean }>(({ isTime }) => ({
     flexDirection: 'column',
     width: isTime ? '80px' : '200px',
     position: 'relative',
-    fontFamily: `'Zen Maru Gothic', sans-serif`,
 
     '&:focus-within label': {
         transform: 'translate(0, 8px) scale(0.75)',
