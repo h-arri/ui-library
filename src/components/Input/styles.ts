@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import * as React from 'react'
+import { colors, typography } from '../../styles/global'
 import { InputProps } from './types'
 
 const StyledContainer = styled.div<{ isTime?: boolean }>(({ isTime }) => ({
@@ -23,7 +24,7 @@ const StyledLabel = styled.label<{ isActive: boolean; isDateOrTime?: boolean }>(
     ({ isActive, isDateOrTime }) => ({
         fontSize: '16px',
         padding: '0 12px',
-        color: '#10201c',
+        color: typography.colors.dark,
         pointerEvents: 'none',
         position: 'absolute',
         transform:
@@ -40,9 +41,9 @@ const StyledInput = styled.input({
     height: '36px',
     padding: '14px 16px 0 10px',
     outline: 0,
-    border: '1px solid #182f29',
+    border: `1px solid ${colors.darker}`,
     borderRadius: '5px',
-    background: '#eef5f3',
+    background: colors.lightest,
     fontSize: '16px',
     '-moz-appearance': 'textfield',
 
