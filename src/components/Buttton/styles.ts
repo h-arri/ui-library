@@ -37,6 +37,7 @@ const StyledButton = styled.button<Omit<ButtonProps, 'label'>>((props) => ({
     '&:disabled': {
         backgroundColor: colors.lightest,
         color: 'rgba(32, 63, 55, 0.5)',
+        borderColor: 'rgba(81, 158, 138, 0.5)',
 
         '&:hover': {
             cursor: 'not-allowed',
